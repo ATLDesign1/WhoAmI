@@ -1,0 +1,10 @@
+<?xml version = "1.0"?>
+<question>
+  <hint>Hint 1: I am responsible for the creation of the Pony Express.</hint>
+  <hint>Hint 2: I am famous for flying a kite in the rain.</hint>
+  <hint>Hint 3: I attended the Second Continental Congress.</hint>
+  <question>Who am I?</question>
+  <option>John Hancock</option>
+  <option>Benjamin Franklin</option>
+  <answer>Benjamin Franklin</answer>  
+</question>

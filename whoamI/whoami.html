@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html>
+<head lang="en">
+<title>Who Am I?</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="rockpaperscissors.ico">
+<script> 
+  //Make older browsers aware of new HTML5 layout tags 
+  'header nav aside article footer section'.replace(/\w+/g, function (n) { document.createElement(n) }) 
+  </script> 
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<meta name="description" content="This is the online portfolio of Christina Descalzo Atlanta Web Design and Development focused on business"/>
+<meta name="keywords" content="Atlanta, web, design, development, mobile, device, queries, SEO, content,creation,Georgia, graphic, design, Atlanta, HTML5, CSS3, monthly, website, updates, HTML, CSS, JavaScript, XHTML, Webmaster, Website Design, Templates, jQuery, PHP, mySQL, digital "/>
+                                             
+<link rel="stylesheet" type="text/css" media="only screen and (min-width:481px)" href="main.css" />
+<link rel="stylesheet" type="text/css" media="only screen and (max-width: 480px), screen and (max-device-width: 480px), screen and (max-width: 750px)" href="media-mobile.css" /> 
+
+
+
+
+<style type="text/css">
+body {
+	background-image: url(../images/sidebarkaleid.png);
+	background-repeat: repeat;
+	color: black;
+	font-size: 22px;
+}
+#mainContent {
+	background-image: url(../images/background.png);
+	background-repeat: repeat;
+	width: 98%;
+	background-color: white;
+	margin: 0 auto;
+	padding: 5px 25px 25px 25px;
+}
+
+</style>
+<script language = "javascript" type = "text/javascript">
+
+  var Request = false;  // instantiate the XMLHttpRequest object.
+  var correctAnswer = "";  // one global variable  used to store the answer to questions downloaded and extracted from the application's XML files.
+
+if (window.XMLHttpRequest) {
+  Request = new XMLHttpRequest();
+} else if (window.ActiveXObject) {
+  Request = new ActiveXObject("Microsoft.XMLHTTP");
+}
+function getXML() {  /* the getXML() function is responsible for downloading a randomly selected XML file from the application's web server.  It then
+retrieves and displays the question and three hints specified as content in the XML file.  */
+/* the first four statements set up object references to the <div> tags that will be used to display the three hints and the question stored in the XML
+file.  Next, a random number from 1 to 10 is generated and used as input in the formation of a filename representing one of the application's XML files.
+It is then downloaded and stored in an object variable named xmlDoc. */
+
+if (Request) {
+var RequestObj1 = document.getElementById("hint1Div");
+var RequestObj2 = document.getElementById("hint2Div");
+var RequestObj3 = document.getElementById("hint3Div");
+var RequestObj4 = document.getElementById("questionDiv");
+var RequestObj5 = document.getElementById("chkbox1SPAN");
+var RequestObj6 = document.getElementById("chkbox2SPAN");
+
+randomNo = 1 + Math.random() * 14;
+randomNo = Math.round(randomNo);
+
+Request.open("GET", "2whoami" + randomNo + ".xml");
+Request.onreadystatechange = function() {
+
+if (Request.readyState == 4 && Request.status == 200) {
+var xmlDoc = Request.responseXML;
+ClearOutWhiteSpace(xmlDoc) /* is called to remove blank spaces from the XML file.  Object variables are then set up to store references to different 
+XML tags.  Next, the text string stored in those tags are retrieved and displayed.  Finally, the last nine statements configure the visibility of the
+application's button and textfield controls. */  
+
+docElement = xmlDoc.documentElement;
+hint1 = docElement.firstChild;
+hint2 = hint1.nextSibling;
+hint3 = hint2.nextSibling;
+question = hint3.nextSibling;
+option1 = question.nextSibling;
+option2 = option1.nextSibling;
+answer = option2.nextSibling;
+
+RequestObj1.innerHTML = hint1.firstChild.nodeValue;
+RequestObj2.innerHTML = hint2.firstChild.nodeValue;
+RequestObj3.innerHTML = hint3.firstChild.nodeValue;
+RequestObj4.innerHTML = question.firstChild.nodeValue;
+RequestObj5.innerHTML = option1.firstChild.nodeValue;
+RequestObj6.innerHTML = option2.firstChild.nodeValue;
+
+correctAnswer = answer.firstChild.nodeValue;
+
+document.getElementById("chkbox1").value = 
+   option1.firstChild.nodeValue;
+document.getElementById("chkbox2").value =
+   option2.firstChild.nodeValue;
+
+var checkButton = document.getElementById("checkBtn")
+var playButton = document.getElementById("playBtn")
+var resultsParagraph = document.getElementById("resultsP");
+var firstOption = document.getElementById("chkbox1");
+var secondOption = document.getElementById("chkbox2");
+
+checkButton.style.visibility="visible";
+playButton.style.visibility="hidden";
+resultsParagraph.innerHTML = "";
+firstOption.style.visibility ="visible";
+secondOption.style.visibility = "visible";
+
+document.getElementById("chkbox1").checked = false;
+document.getElementById("chkbox2").checked = false;
+
+}
+}
+Request.send(null);
+}
+}
+/* The ClearOutWhiteSpace() function takes as an argument an object representing an XML file.  It then uses 
+a loop to iterate through each oine of the XML file, removing any excess white space.  When necessary, the function makes recursive calls to itself to
+process any white space embedded within child nodes.*/
+function ClearOutWhiteSpace(xmlFile) {
+  var i = 0;
+  for (i = 0; i < xmlFile.childNodes.length; i++){
+    var tag = xmlFile.childNodes[i];
+    if (tag.nodeType == 1) {
+      ClearOutWhiteSpace(tag);
+    }
+    if ((tag.nodeType == 3) && (/^\s+$/.test(tag.nodeValue))) {
+      xmlFile.removeChild(xmlFile.childNodes[i--]);
+    }
+  }
+}
+/* the checkAnswer() function is responsible for determining whether the player was able to correctly answer the game's current questions.  The first statement retrieves
+the player's answer from the textfield control.  The second statement retrieves a reference to a pair of <p> tags located just under the application's form.  The text
+this function generates displays in this form.  Next, I've set up an if statement code block to compare the player's answer (stored in answer) to the correct answer
+for the question (stored in correctAnswer). Based on this analysis, either of the two messages displays (using the innerHTML property belonging to the object reference
+[results] of the <p> tags).  Finally, the last five statements change the text that shows on the Play button to Play Again.  This makes the text visible while also
+making the Check button invisible. */
+function checkAnswer() {
+
+var results = document.getElementById("resultsP");
+
+if (document.getElementById("chkbox1").checked == true
+    && document.getElementById("chkbox2").checked == true) {
+	results.innerHTML = "Error:  You may only select one answer!";
+}
+else {
+	if (document.getElementById("chkbox1").checked == false
+	&& document.getElementById("chkbox2").checked == false) {
+	results.innerHTML = "Error:  You did not select an answer!";
+}
+else {
+	if (document.getElementById("chkbox1").checked == true) {
+	  if (document.getElementById("chkbox1").value == correctAnswer) {
+		  results.innerHTML = "That's right!";
+}
+else {
+	results.innerHTML = "Sorry, that's not me.";
+}
+	}
+
+if (document.getElementById("chkbox2").checked == true) {
+	if (document.getElementById("chkbox2").value == correctAnswer) {
+		results.innerHTML = "That's right!";
+}
+else {
+	results.innerHTML = "Sorry, that's not me.";
+}
+}
+}
+}
+		
+var playButton = document.getElementById("playBtn");
+playButton.style.visibility="visible";
+playButton.value="Play Again";
+
+var checkButton = document.getElementById("checkBtn");
+checkButton.style.visibility="hidden";
+
+}
+
+</script>
+  </head> 
+<body class="container"><!-- Notice the id attribute for the button and textfield controls.  This allows the application's JavaScript to programmatically reference them. -->
+  <!-- Also note that I've embedded a number of pairs of <p> and <div> tags within the form.  These pairs of tags will be used to programmatically display 
+  questions and their accompanying hints during game play.  I included a final pair of <p> tags at the end of the body section.  These will be used to display
+  messages that notify the player whether the answers are right or wrong. -->
+    <div id="mainContent">
+    <h1 style = "color:blue">Who Am I?</h1>
+    <form>    
+      <p>Click Play to see a list of hints, and then try to 
+      guess who I am by selecting one of the two answers that are
+      displayed. Then click Check to see if you are right.</p>
+      <input type="button" value="Play" id="playBtn" onclick="getXML()">
+      <p><div id = "hint1Div"> </div></p>
+      <p><div id = "hint2Div"> </div></p>
+      <p><div id = "hint3Div"> </div></p>
+      <p><div id="questionDiv" style="color:blue; font-weight:Bold"> 
+        </div></p>
+       <p><input type="checkbox" id="chkbox1" value="" style="visibility:hidden"/><span id = "chkbox1SPAN"> </span></p>
+       <p><input type="checkbox" id="chkbox2" value="" style="visibility:hidden"/><span id = "chkbox2SPAN"> </span></p>
+      
+        <input type="button" value="Check" style="visibility:hidden"
+        id="checkBtn" onclick="checkAnswer()"> 
+    </form>
+    <p style = "color:red; font-weight:Bold" id = "resultsP"> </p>
+   
+    </div>
+  </body> 
+</html>

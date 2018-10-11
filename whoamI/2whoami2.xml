@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<question>
+  <hint>Hint 1: I was an Apollo 11 astronaut.</hint>
+  <hint>Hint 2: I was the first man to walk on the moon.</hint>
+  <hint>Hint 3: I drank a lot of Tang.</hint>
+  <question>Who am I?</question>
+  <option>Neil Armstrong</option>
+  <option>George Bush</option>
+  <answer>Neil Armstrong</answer>   
+</question> 

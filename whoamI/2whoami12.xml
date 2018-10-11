@@ -1,0 +1,10 @@
+<?xml version = "1.0"?>
+<question>
+  <hint>Hint 1: I am a Greek god.</hint>
+  <hint>Hint 2: I am known for throwing lightening bolts.</hint>
+  <hint>Hint 3: I am the father of Hercules.</hint>
+  <question>Who am I?</question>
+  <option>Apollo</option>
+  <option>Zeus</option>
+  <answer>Zeus</answer>  
+</question>

@@ -1,0 +1,10 @@
+<?xml version = "1.0"?>
+<question>
+  <hint>Hint 1: I won the battle of New Orleans.</hint>
+  <hint>Hint 2: I was a president of the United States.</hint>
+  <hint>Hint 3: I look great on the $20 bill.</hint>
+  <question>Who am I?</question>
+  <option>Andrew Jackson</option>
+  <option>Thomas Jefferson</option>
+  <answer>Andrew Jackson</answer>  
+</question>

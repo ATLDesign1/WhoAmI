@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<question>
+  <hint>Hint 1: I was Prime Minister of England from 1979 to 1990.</hint>
+  <hint>Hint 2: My nickname was the Iron Lady.</hint>
+  <hint>Hint 3: I was leader of my country's Conservative Party.</hint>
+  <question>Who am I?</question>
+  <option>Tony Blair</option>
+  <option>Margaret Thatcher</option>
+  <answer>Margaret Thatcher</answer> 
+</question>

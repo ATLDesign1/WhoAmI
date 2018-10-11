@@ -1,0 +1,10 @@
+<?xml version = "1.0"?>
+<question>
+  <hint>Hint 1: I was the unquestioned ruler of Germany in World War II.</hint>
+  <hint>Hint 2: I was not born in Germany.</hint>
+  <hint>Hint 3: I once tried to take control of the German government by force and failed.</hint>
+  <question>Who am I?</question>
+  <option>Adolf Hitler</option>
+  <option>Field Marshal Fedor von Bock</option>
+  <answer>Adolf Hitler</answer>  
+</question>

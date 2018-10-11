@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<question>
+  <hint>Hint 1: I am a famous biblical character.</hint>
+  <hint>Hint 2: I once hiked up Mount Sinai.</hint>
+  <hint>Hint 3: I was given the 10 Commandments.</hint>
+  <question>Who am I?</question>
+  <option>Moses</option>
+  <option>Abraham</option>
+  <answer>Moses</answer> 
+</question>

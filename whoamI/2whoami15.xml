@@ -1,0 +1,10 @@
+<?xml version = "1.0"?>
+<question>
+  <hint>Hint 1: I was president of the Confederate States of America.</hint>
+  <hint>Hint 2: My government was located in Richmond Virginia.</hint>
+  <hint>Hint 3: My presidency only lasted five years.</hint>
+  <question>Who am I?</question>
+  <option>Jefferson Davis</option>
+  <option>Abraham Lincoln</option>
+  <answer>Jefferson Davis</answer>  
+</question>
